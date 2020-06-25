@@ -7,12 +7,12 @@ def application(environ, start_response):
 	b = c.get('b', [''])[0]
 	r1 = 0
 	r2 = 0
-	if a.isdigit() and b.isdigit():
+	try:
 		a, b = int(a), int(b)
 		r1 = a + b
 		r2 = a * b
 		printstr = "Plus = " + str(r1) + " Multiply = " + str(r2)
-	else:
+	except ValueError:
 		printstr = "Please enter the numbers"
 	response_body = html + printstr
 	start_response('200 OK', [('Content-Type', 'text/html'), ('Content-Length', str(len(response_body)))])
