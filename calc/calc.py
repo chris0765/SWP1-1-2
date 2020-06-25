@@ -11,7 +11,9 @@ def application(environ, start_response):
 		a, b = int(a), int(b)
 		r1 = a + b
 		r2 = a * b
-	printstr = "Plus = " + str(r1) + " Multiply = " + str(r2)
+		printstr = "Plus = " + str(r1) + " Multiply = " + str(r2)
+	else:
+		printstr = "Please enter the numbers"
 	response_body = html + printstr
 	start_response('200 OK', [('Content-Type', 'text/html'), ('Content-Length', str(len(response_body)))])
 	return [response_body]
